@@ -8,6 +8,8 @@ html {
     scroll-behavior: smooth;
 }
 
-
-
-
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
