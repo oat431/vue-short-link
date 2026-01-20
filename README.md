@@ -1,5 +1,7 @@
-# Vue 3 + TypeScript + Vite
+# Vue3 Short Link Frontend
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+short link frontend
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+2 type of short link for this application
+- c is custom short link
+- r is random short link
