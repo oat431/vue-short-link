@@ -2,6 +2,7 @@
 import { ref, onMounted } from 'vue';
 import NavBar from './components/NavBar.vue';
 import Footer from './components/Footer.vue';
+import ClickToCopy from './components/ClickToCopy.vue';
 import { getAllShortLinks, createShortLink, confirmAction } from './service/ShortLink';
 import type { ShortLinkList } from './types/ShortLinkList';
 import type { ShortLinkRequest } from './types/ShortLinkRequest';
@@ -69,11 +70,10 @@ onMounted(() => {
         <tbody>
           <tr v-for="link in shortLinkList" :key="link.shortLink">
             <td>
-              <a :href="link.shortLink" target="_blank" class="ml-2 text-blue-500 underline">{{ link.shortLink }}</a>
+              <ClickToCopy :textToCopy="link.shortLink" />
             </td>
             <td>
-              <a :href="link.originalLink" target="_blank" class="ml-2 text-blue-500 underline"> {{ link.originalLink
-                }}</a>
+              <ClickToCopy :textToCopy="link.originalLink" />
             </td>
           </tr>
         </tbody>
