@@ -12,7 +12,25 @@ const shortLinkList = ref<Array<ShortLinkList>>([]);
 const longUrl = ref('');
 const urlAlias = ref('');
 
+async function isValidUrl(url: string): Promise<boolean> {
+  try {
+    new URL(url);
+    return true;
+  } catch (_) {
+    return false;
+  }
+}
+
 async function createShortUrl() {
+  if (!longUrl.value) {
+    alert("Please enter a URL.");
+    return;
+  }
+  if (!await isValidUrl(longUrl.value)) {
+    alert("Please enter a valid URL.");
+    longUrl.value = '';
+    return;
+  }
   let password = prompt("Enter admin password to create custom short URL:");
   let isConfirmed = await confirmAction(password ? password : "");
   if (isConfirmed) {
@@ -24,6 +42,7 @@ async function createShortUrl() {
     }
     await createShortLink(shortUrlRequest);
     alert("Short URL created successfully!");
+    longUrl.value = '';
     shortLinkList.value = await getAllShortLinks();
   } else {
     alert("Action cancelled or incorrect password.");
